@@ -1,13 +1,29 @@
-Данный репозиторий оммаж работе Вовы - https://github.com/VladimirAllmight/NMSTU_CGI_CPP
-Мною были внесенны актуальные правки. Инструкцией по настройке пользуйтесь в его репозитории, здесь будет описанно только то что было изменено.
+# CGI Lab 4
 
-У Калитаева было требование, чтобы доступ к сайту был по адресу: http://localhost/lab4/ 
-Для этого папочка cgi-bin была переименована в lab4, и в конфиге ./xampp/apache/conf/httpd.conf добавить это
-  
-  ScriptAlias /lab4/ "C:/xampp/lab4/"
-  <Directory "C:/xampp/lab4">
-      Options +ExecCGI
-      AddHandler cgi-script .cgi .exe
-      Require all granted
-      AllowOverride None
-  </Directory>
+Данный репозиторий - оммаж работе [Вовы](https://github.com/VladimirAllmight/NMSTU_CGI_CPP).
+
+Я внёс актуальные правки и доработки под требования преподавателя.
+
+---
+
+## Единственное серьезное изменение
+У Калитаева появилось требование, чтобы доступ был по адресу -  `http://localhost/lab4/`
+
+- Переименована папка `cgi-bin` → `lab4` для соответствия требованиям
+- Настроен доступ по адресу: `http://localhost/lab4/`
+
+---
+
+## Настройка Apache (httpd.conf)
+
+Добавьте следующие строки в конфигурационный файл `./xampp/apache/conf/httpd.conf`:
+
+```apache
+ScriptAlias /lab4/ "C:/xampp/lab4/"
+
+<Directory "C:/xampp/lab4">
+    Options +ExecCGI
+    AddHandler cgi-script .cgi .exe
+    Require all granted
+    AllowOverride None
+</Directory>
