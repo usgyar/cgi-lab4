@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Угадай число</title>
+    <link rel="stylesheet" href="/game/resources/styles/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="/game/resources/resources/font/bootstrap-icons.css">-->
+    <link rel="stylesheet" href="/game/resources/styles/main.css">
+</head>
+
+<body>
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-9">
+                <div class="container game-container">
+                    <div class="card-body">
+                        <h1 class="text-center mb-4 fs-1">
+                            <i class="bi bi-joystick"></i> Угадай число
+                        </h1>
+                        <form method="POST" action="/lab4/">
+                            <!-- Диапазон -->
+                            <div class="row g-2 mb-4">
+                                <div class="col">
+                                    <input type="number" name="min" value="{{MIN}}"
+                                        class="form-control text-center fs-5" placeholder="A" {{RANGE_ATTR}}>
+                                </div>
+                                <div class="col">
+                                    <input type="number" name="max" value="{{MAX}}"
+                                        class="form-control text-center fs-5 text-white" placeholder="B" {{RANGE_ATTR}}>
+                                </div>
+                            </div>
+
+                            <!-- Ввод -->
+                            <input type="number" name="guess" autofocus class="form-control mb-3 text-center fs-5"
+                                placeholder="Введите число" min="{{MIN}}" max="{{MAX}}" {{GUESS_ATTR}}>
+
+                            <!-- Кнопки -->
+                            <div class="d-grid gap-2 mb-4">
+                                <button class="btn btn-danger fs-6" name="action" value="guess" {{GUESS_BTN_ATTR}}>
+                                    Проверить
+                                </button>
+
+                                <button class="btn btn-success fs-6" name="action" value="restart">
+                                    Играть заново
+                                </button>
+
+                                <button class="btn btn-secondary fs-6" name="action" value="new_range">
+                                    Новый диапазон
+                                </button>
+                            </div>
+
+                            <!-- Сообщение -->
+                            <div class="text-center fw-bold mb-2 fs-5">
+                                {{MESSAGE}}
+                            </div>
+
+                            <!-- История -->
+                            <ul class="d-flex flex-wrap justify-content-center gap-2 list-unstyled mb-3 fs-5">
+                                {{HISTORY}}
+                            </ul>
+
+                            <!-- Прогресс -->
+                            <div class="text-center mb-3">
+                                <h6 class="mb-2 fs-4">
+                                    <i class="bi bi-heart-pulse"></i> Попытки
+                                </h6>
+
+                                <div class="progress fs-5" style="height: 2rem;">
+                                    <div class="progress-bar {{PROGRESS_COLOR}}" style="width:{{PROGRESS}}%">
+                                        {{ATTEMPTS}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Скрытое состояние -->
+                            <input type="hidden" name="status" value="{{STATUS}}">
+                            <!-- <input type="hidden" name="history" value="{{HISTORY_RAW}}"> -->
+                            <!-- <input type="hidden" name="ctrl" value="{{CTRL}}"> -->
+                            <input type="hidden" name="enc_state" value="{{ENC_STATE}}">
+                            <input type="hidden" name="sign" value="{{SIGN}}">
+                        </form>
+
+                        <!-- Правила
+                        <div class="card shadow-sm mt-4">
+                            <div class="card-header bg-light">
+                                <h6 class="mb-0 fs-5">
+                                    <i class="bi bi-book fs-4"></i> Правила
+                                </h6>
+                            </div>
+                            <div class="card-body small">
+                                <ul class="mb-0 ps-3 fw-light fs-4">
+                                    <li>Задайте диапазон A–B</li>
+                                    <li>Система загадывает число</li>
+                                    <li>Вводите предположения</li>
+                                    <li>Подсказки: больше / меньше / угадал</li>
+                                </ul>
+                            </div>
+                        </div> -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

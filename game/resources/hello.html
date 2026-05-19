@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Угадай число</title>
+    <link rel="stylesheet" href="/game/resources/styles/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="/game/resources/resources/font/bootstrap-icons.css">-->
+    <link rel="stylesheet" href="/game/resources/styles/main.css">
+</head>
+<body>
+    <div class="container game-container">
+        <h1 class="text-center mb-4"><i class="bi bi-joystick"></i> Угадай число</h1>
+        <form method="POST" action="/lab4/" class="mb-4">
+            {{ERROR_ALERT}}
+            <div class="row g-2 justify-content-center">
+                <div class="col-5 col-md-2">
+                    <input type="number" autofocus id="min" name="min" class="form-control" placeholder="A">
+                </div>
+                <div class="col-5 col-md-2">
+                    <input type="number" id="max" name="max" class="form-control" placeholder="B">
+                </div>
+                <div class="col-10 col-md-2">
+                    <button type="submit" id="startGame" name="action" value="start" class="btn btn-warning w-100">
+                        <i class="bi bi-play-fill"></i> Начать игру
+                    </button>
+                </div>
+            </div>
+            <input type="hidden" name="status" value="{{STATUS}}">
+        </form>
+
+        <div class="rules-section mb-4">
+            <div class="card shadow-sm">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0"><i class="bi bi-book"></i> Правила игры</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="mb-0 ps-3 text-white">
+                        <li>Задайте диапазон чисел (от <strong>A</strong> до <strong>B</strong>).</li>
+                        <li>Нажмите <strong>«Начать игру»</strong>, чтобы система загадала число.</li>
+                        <li>Вводите предполагаемые числа в поле ввода.</li>
+                        <li>Система подскажет: <span class="text-success">больше</span>, <span class="text-danger">меньше</span> или <span class="text-primary">угадали</span>.</li>
+                        <li>Постарайтесь угадать за минимум попыток!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
